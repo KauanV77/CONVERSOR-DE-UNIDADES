@@ -6,7 +6,7 @@ janela.title("Conversor UNIFG")
 janela.geometry("500x600")
 
 # Cor do fundo
-cor_fundo_atual = "#8EA6F3"
+cor_fundo_atual = "#2B6BCC"
 janela.configure(fg_color=cor_fundo_atual)
 
 categoria_atual = "Comprimento"
@@ -17,10 +17,10 @@ def mudar_cor_suave(cor_destino, passo=0):
 
     # Cores usadas no programa
     cores_rgb = {
-        "#8EA6F3": (224, 231, 255),
-        "#91EAB0": (220, 252, 231),
-        "#F0C48A": (255, 237, 213)
-    }
+    "#2B6BCC": (43, 107, 204), 
+    "#28B543": (40, 181, 67),   
+    "#D1941B": (209, 148, 27),   
+}
 
     if passo <= 10:
 
@@ -48,7 +48,7 @@ def clica_comprimento():
     global categoria_atual
 
     categoria_atual = "Comprimento"
-    mudar_cor_suave("#8EA6F3")
+    mudar_cor_suave("#2B6BCC")
 
     # Unidades 
     opcoes = ["Metro", "Centimetro", "Quilometro"]
@@ -69,7 +69,7 @@ def clica_peso():
     global categoria_atual
 
     categoria_atual = "Peso"
-    mudar_cor_suave("#91EAB0")
+    mudar_cor_suave("#28B543")
 
     opcoes = ["Grama", "Quilograma"]
 
@@ -89,7 +89,7 @@ def clica_temperatura():
     global categoria_atual
 
     categoria_atual = "Temperatura"
-    mudar_cor_suave("#F0C48A")
+    mudar_cor_suave("#D1941B")
 
     opcoes = ["Celsius", "Fahrenheit"]
 
@@ -180,7 +180,8 @@ def calcular_tudo():
 titulo = customtkinter.CTkLabel(
     janela,
     text="Conversor de Unidades",
-    font=("Arial", 30)
+    font=("Arial", 30),
+    text_color="white"
 )
 titulo.pack(pady=20)
 
@@ -217,11 +218,11 @@ espaco = customtkinter.CTkLabel(janela, text="")
 espaco.pack()
 
 # --- NOVO FRAME ---
-frame_opcoes = customtkinter.CTkFrame(janela, fg_color="#BBBBBB", corner_radius=12)
+frame_opcoes = customtkinter.CTkFrame(janela, fg_color="#FFFFFF", corner_radius=12)
 frame_opcoes.pack(pady=10, padx=20, fill="both", expand=True)
 
 # Escolha da unidade quando inicia o programa
-label_de = customtkinter.CTkLabel(frame_opcoes, text="Converter de:")
+label_de = customtkinter.CTkLabel(frame_opcoes, text="CONVERTER DE:")
 label_de.pack(pady=(10, 0))
 
 caixa_de = customtkinter.CTkOptionMenu(
@@ -233,7 +234,8 @@ caixa_de.pack(pady=5)
 # Campo para digitar o valor
 entrada_valor = customtkinter.CTkEntry(
     frame_opcoes,
-    placeholder_text="Digite o número aqui"
+    placeholder_text="Digite o número aqui",
+    width=178
 )
 entrada_valor.pack(pady=10)
 
@@ -242,12 +244,12 @@ btn_calcular = customtkinter.CTkButton(
     frame_opcoes,
     text="CALCULAR AGORA",
     command=calcular_tudo,
-    fg_color="black"
+    fg_color="#616161"
 )
 btn_calcular.pack(pady=20)
 
 # Escolha da unidade final
-label_para = customtkinter.CTkLabel(frame_opcoes, text="Para:")
+label_para = customtkinter.CTkLabel(frame_opcoes, text="PARA:")
 label_para.pack()
 
 caixa_para = customtkinter.CTkOptionMenu(
@@ -259,7 +261,8 @@ caixa_para.pack(pady=5)
 # Campo do Resultado
 entrada_resultado = customtkinter.CTkEntry(
     frame_opcoes,
-    placeholder_text="O resultado vai aparecer aqui"
+    placeholder_text="O resultado vai aparecer aqui",
+    width=178
 )
 entrada_resultado.pack(pady=(10, 20))
 
