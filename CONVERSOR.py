@@ -3,7 +3,7 @@ import customtkinter
 # JANELa
 janela = customtkinter.CTk()
 janela.title("Conversor UNIFG")
-janela.geometry("500x600")
+janela.geometry("500x450")
 
 # Cor do fundo
 cor_fundo_atual = "#2B6BCC"
@@ -117,7 +117,7 @@ def calcular_tudo():
 
         resultado = 0
 
-        # Conversões de comprimento
+        # Calculos comprimento
         if categoria_atual == "Comprimento":
 
             if de == "Metro" and para == "Centimetro":
@@ -141,7 +141,7 @@ def calcular_tudo():
             else:
                 resultado = valor
 
-        # Conversões de peso
+        # Calculos de peso
         elif categoria_atual == "Peso":
 
             if de == "Quilograma" and para == "Grama":
@@ -153,7 +153,7 @@ def calcular_tudo():
             else:
                 resultado = valor
 
-        # Conversões de temperatura
+        # Calculos de temperatura
         elif categoria_atual == "Temperatura":
 
             if de == "Celsius" and para == "Fahrenheit":
@@ -171,7 +171,7 @@ def calcular_tudo():
 
     except:
 
-        # Se der erro mostra aviso
+        # Aviso caso de erro
         entrada_resultado.delete(0, 'end')
         entrada_resultado.insert(0, "Erro!")
 
@@ -180,7 +180,7 @@ def calcular_tudo():
 titulo = customtkinter.CTkLabel(
     janela,
     text="Conversor de Unidades",
-    font=("Arial", 30),
+    font=("Arial", 30, "bold"),
     text_color="white"
 )
 titulo.pack(pady=20)
@@ -222,12 +222,14 @@ frame_opcoes = customtkinter.CTkFrame(janela, fg_color="#FFFFFF", corner_radius=
 frame_opcoes.pack(pady=10, padx=20, fill="both", expand=True)
 
 # Escolha da unidade quando inicia o programa
-label_de = customtkinter.CTkLabel(frame_opcoes, text="CONVERTER DE:")
+label_de = customtkinter.CTkLabel(
+    frame_opcoes, text="CONVERTER DE:", font=("Arial", 14, "bold")
+)
 label_de.pack(pady=(10, 0))
 
 caixa_de = customtkinter.CTkOptionMenu(
     frame_opcoes,
-    values=["Metro", "Centimetro", "Quilometro"]
+    values=["Metro", "Centimetro", "Quilometro"],
 )
 caixa_de.pack(pady=5)
 
@@ -235,7 +237,8 @@ caixa_de.pack(pady=5)
 entrada_valor = customtkinter.CTkEntry(
     frame_opcoes,
     placeholder_text="Digite o número aqui",
-    width=178
+    width=159,
+    font=("Arial", 14, "bold")
 )
 entrada_valor.pack(pady=10)
 
@@ -244,12 +247,15 @@ btn_calcular = customtkinter.CTkButton(
     frame_opcoes,
     text="CALCULAR AGORA",
     command=calcular_tudo,
-    fg_color="#616161"
+    fg_color="#184B8C",
+    font=("Arial",14,"bold")
 )
 btn_calcular.pack(pady=20)
 
 # Escolha da unidade final
-label_para = customtkinter.CTkLabel(frame_opcoes, text="PARA:")
+label_para = customtkinter.CTkLabel(
+    frame_opcoes, text="PARA:", font=("Arial", 14, "bold")
+)
 label_para.pack()
 
 caixa_para = customtkinter.CTkOptionMenu(
@@ -262,7 +268,8 @@ caixa_para.pack(pady=5)
 entrada_resultado = customtkinter.CTkEntry(
     frame_opcoes,
     placeholder_text="O resultado vai aparecer aqui",
-    width=178
+    width=220,
+    font=("Arial", 14, "bold")
 )
 entrada_resultado.pack(pady=(10, 20))
 
