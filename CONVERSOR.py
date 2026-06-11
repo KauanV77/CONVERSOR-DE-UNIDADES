@@ -6,7 +6,7 @@ janela.title("Conversor UNIFG")
 janela.geometry("500x450")
 
 # Cor do fundo
-cor_fundo_atual = "#2B6BCC"
+cor_fundo_atual = "#0077FF"
 janela.configure(fg_color=cor_fundo_atual)
 
 categoria_atual = "Comprimento"
@@ -17,9 +17,9 @@ def mudar_cor_suave(cor_destino, passo=0):
 
     # Cores usadas no programa
     cores_rgb = {
-    "#2B6BCC": (43, 107, 204), 
-    "#28B543": (40, 181, 67),   
-    "#D1941B": (209, 148, 27),   
+    "#0077FF": (0, 119, 255), 
+    "#004DAB": (0, 77, 171),   
+    "#001E40": (0, 30, 64),   
 }
 
     if passo <= 10:
@@ -48,7 +48,7 @@ def clica_comprimento():
     global categoria_atual
 
     categoria_atual = "Comprimento"
-    mudar_cor_suave("#2B6BCC")
+    mudar_cor_suave("#0077FF")
 
     # Unidades 
     opcoes = ["Metro", "Centimetro", "Quilometro"]
@@ -69,7 +69,7 @@ def clica_peso():
     global categoria_atual
 
     categoria_atual = "Peso"
-    mudar_cor_suave("#28B543")
+    mudar_cor_suave("#004DAB")
 
     opcoes = ["Grama", "Quilograma"]
 
@@ -89,7 +89,7 @@ def clica_temperatura():
     global categoria_atual
 
     categoria_atual = "Temperatura"
-    mudar_cor_suave("#D1941B")
+    mudar_cor_suave("#001E40")
 
     opcoes = ["Celsius", "Fahrenheit"]
 
@@ -104,11 +104,11 @@ def clica_temperatura():
     entrada_resultado.delete(0, 'end')
 
 
-# Faz as conversões
+# Area Das Conversoes
 def calcular_tudo():
     try:
 
-        # Pega o valor digitado
+        # Campo do valor digitado
         texto_digitado = entrada_valor.get()
         valor = float(texto_digitado)
 
@@ -194,22 +194,28 @@ frame_botoes.pack(pady=10)
 
 btn_comp = customtkinter.CTkButton(
     frame_botoes,
-    text="Comprimento",
-    command=clica_comprimento
+    text="📏 Comprimento",
+    command=clica_comprimento,
+    fg_color="#013A78",
+    hover_color="#204E7D"
 )
 btn_comp.pack(side="left", padx=5)
 
 btn_peso = customtkinter.CTkButton(
     frame_botoes,
-    text="Peso",
-    command=clica_peso
+    text="⚖️ Peso",
+    command=clica_peso,
+    fg_color="#013A78",
+    hover_color="#204E7D"
 )
 btn_peso.pack(side="left", padx=5)
 
 btn_temp = customtkinter.CTkButton(
     frame_botoes,
-    text="Temperatura",
-    command=clica_temperatura
+    text="🌡️ Temperatura",
+    command=clica_temperatura,
+    fg_color="#013A78",
+    hover_color="#204E7D"
 )
 btn_temp.pack(side="left", padx=5)
 
